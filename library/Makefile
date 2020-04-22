@@ -9,9 +9,9 @@ CRYPTO_INCLUDES ?= -I../include
 LOCAL_CFLAGS = $(WARNING_CFLAGS) $(CRYPTO_INCLUDES) -D_FILE_OFFSET_BITS=64
 LOCAL_LDFLAGS =
 
-ifdef DEBUG
+#ifdef DEBUG
 LOCAL_CFLAGS += -g3
-endif
+#endif
 
 # MicroBlaze specific options:
 # CFLAGS += -mno-xl-soft-mul -mxl-barrel-shift

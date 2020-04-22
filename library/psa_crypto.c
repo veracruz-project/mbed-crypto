@@ -5795,7 +5795,7 @@ psa_status_t psa_crypto_init( void )
         global_data.entropy_free = mbedtls_entropy_free;
 
     /* Initialize the random generator. */
-    global_data.entropy_init( &global_data.entropy );
+    //global_data.entropy_init( &global_data.entropy );
 #if defined(MBEDTLS_PSA_INJECT_ENTROPY) && \
     defined(MBEDTLS_NO_DEFAULT_ENTROPY_SOURCES)
     /* The PSA entropy injection feature depends on using NV seed as an entropy
@@ -5805,7 +5805,7 @@ psa_status_t psa_crypto_init( void )
                                 MBEDTLS_ENTROPY_BLOCK_SIZE,
                                 MBEDTLS_ENTROPY_SOURCE_STRONG );
 #endif
-    mbedtls_ctr_drbg_init( &global_data.ctr_drbg );
+    //mbedtls_ctr_drbg_init( &global_data.ctr_drbg );
     global_data.rng_state = RNG_INITIALIZED;
     status = mbedtls_to_psa_error(
         mbedtls_ctr_drbg_seed( &global_data.ctr_drbg,

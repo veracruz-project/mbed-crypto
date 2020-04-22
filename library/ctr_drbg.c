@@ -380,21 +380,21 @@ static int mbedtls_ctr_drbg_reseed_internal( mbedtls_ctr_drbg_context *ctx,
     memset( seed, 0, MBEDTLS_CTR_DRBG_MAX_SEED_INPUT );
 
     /* Gather entropy_len bytes of entropy to seed state. */
-    if( 0 != ctx->f_entropy( ctx->p_entropy, seed, ctx->entropy_len ) )
-    {
-        return( MBEDTLS_ERR_CTR_DRBG_ENTROPY_SOURCE_FAILED );
-    }
+    // if( 0 != ctx->f_entropy( ctx->p_entropy, seed, ctx->entropy_len ) )
+    // {
+    //     return( MBEDTLS_ERR_CTR_DRBG_ENTROPY_SOURCE_FAILED );
+    // }
     seedlen += ctx->entropy_len;
 
     /* Gather entropy for a nonce if requested. */
-    if( nonce_len != 0 )
-    {
-        if( 0 != ctx->f_entropy( ctx->p_entropy, seed, nonce_len ) )
-        {
-            return( MBEDTLS_ERR_CTR_DRBG_ENTROPY_SOURCE_FAILED );
-        }
-        seedlen += nonce_len;
-    }
+    // if( nonce_len != 0 )
+    // {
+    //     if( 0 != ctx->f_entropy( ctx->p_entropy, seed, nonce_len ) )
+    //     {
+    //         return( MBEDTLS_ERR_CTR_DRBG_ENTROPY_SOURCE_FAILED );
+    //     }
+    //     seedlen += nonce_len;
+    // }
 
     /* Add additional data if provided. */
     if( additional != NULL && len != 0 )
